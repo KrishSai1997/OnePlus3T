@@ -18432,7 +18432,7 @@ eHalStatus csrRoamOffloadScan(tpAniSirGlobal pMac, tANI_U8 sessionId,
             pRequestBuf->ConnectedNetwork.ChannelCache[num_channels++] =
                 *ChannelList;
 
-            if (*ChannelList)
+            if (*ChannelList) {
                   VOS_TRACE(VOS_MODULE_ID_SME, VOS_TRACE_LEVEL_DEBUG,
                        "DFSRoam=%d, ChnlState=%d, Chnl=%d, num_ch=%d",
                        pMac->roam.configParam.allowDFSChannelRoam,
@@ -18440,6 +18440,7 @@ eHalStatus csrRoamOffloadScan(tpAniSirGlobal pMac, tANI_U8 sessionId,
                        *ChannelList,
                        num_channels);
               ChannelList++;
+            }
         }
         pRequestBuf->ConnectedNetwork.ChannelCount = num_channels;
         /* If the profile changes as to what it was earlier, inform the

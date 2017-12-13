@@ -846,12 +846,13 @@ int32_t msm_sensor_driver_probe(void *setting,
 					sensor_id_info.sensor_id);
 			msm_sensor_fill_sensor_info(s_ctrl,
 				probed_info, entity_name);
-		} else
+		} else {
 			pr_err("slot %d has some other sensor\n",
 				slave_info->camera_id);
 
 		rc = 0;
 		goto free_slave_info;
+		}
 	}
 
 	if (slave_info->power_setting_array.size == 0 &&
@@ -1041,15 +1042,16 @@ CSID_TG:
             break;
     }
 
-    if (i >= count)
+    if (i >= count) {
         pr_err("%s,Match camera sensor faild!,current sensor name is %s",
-            __func__,slave_info->sensor_name);
-    else
+			__func__,slave_info->sensor_name);
+	} else {
         push_component_info(CameraID,match_tbl[i].sensor_name,
             match_tbl[i].vendor_name);
 
 	msm_sensor_fill_sensor_info(s_ctrl, probed_info, entity_name);
 
+	}
 	return rc;
 
 camera_power_down:
