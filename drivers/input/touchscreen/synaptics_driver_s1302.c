@@ -91,7 +91,7 @@ enum oem_boot_mode{
 #define SUPPORT_VIRTUAL_KEY
 /*---------------------------------------------Global Variable----------------------------------------------*/
 static int force_update = 0;
-static int key_reverse = 0;
+static int key_reverse = 1;
 static struct synaptics_ts_data *tc_g = NULL;
 int test_err = 0;
 static int touchkey_wait_time = 45;
